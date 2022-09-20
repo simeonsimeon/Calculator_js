@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator{
+             height: 500px;
+             width: 400px;
+             background-color: rgb(17, 48, 73);
+             margin-left: 35%;
+             border-radius: 10px;
+        }
+        input{
+            height: 45px;
+            width: 80%;
+            margin-left: 8.5%;
+            background-color: blanchedalmond;
+        }
+        .calculator button{
+            padding: 10px 30px 10px 30px;
+            font-size: 30px;
+        }
+        .calculator .first{
+            margin-left: 35px;
+            margin-top: 20px;
+        }
+        .calculator .second{
+            margin-left: 35px;
+            margin-top: 10px;
+        }
+        .calculator .third{
+            margin-left: 35px;
+            margin-top: 10px;
+        }
+        .calculator .four{
+            margin-left: 35px;
+            margin-top: 10px;
+        }
+        .calculator .zero{
+            margin-left: 35px;
+            margin-top: 10px;
+        }
+        .final button{
+            height: 160px;
+            width: 50px;
+            position: absolute;
+            top: 36%;
+            right: 39%;
+        }
+        .calculator .zero button:nth-child(3){
+            width: 50%;
+        }
+        
+
+      
+    </style>
+</head>
+<body>
+    <section class="calculator">
+        <div class="info"><h1 style="font-size: 30px;color: white;margin-left: 30%;">CalcuLaTor</h1></div>
+        <input id="display" placeholder="0 0 0 0" readonly>
+        <div class="first">
+          <button onclick="operator('+')">+</button>
+          <button onclick="operator('-')">-</button>
+          <button onclick="operator('*')">*</button>
+          <button onclick="operator('/')">/</button>
+         </div>
+
+         <div class="second">
+            <button onclick="number(1)">1</button>
+            <button onclick="number(2)">2</button>
+            <button onclick="number(3)">3</button>
+           </div>
+           
+         <div class="third">
+            <button onclick="number(4)">4</button>
+            <button onclick="number(5)">5</button>
+            <button onclick="number(6)">6</button>
+           </div>
+           
+         <div class="four">
+            <button onclick="number(7)">7</button>
+            <button onclick="number(8)">8</button>
+            <button onclick="number(9)">9</button>
+           </div>
+           <div class="zero">
+            <button onclick="number(0)">0</button>
+            <button onclick="number()">.</button>
+            <button onclick="ac()">AC</button>
+           </div>
+           
+          
+    </section>
+    <div class="final">
+        <button onclick="output()">=</button>
+       </div>
+
+
+
+
+
+    <script>
+        let display=document.getElementById("display");
+        let num=0;
+        let add="";
+        let arr=[];
+        function number(num){
+            display.value+=num;
+           add+=num;
+          
+        }
+        function operator(opp){
+          display.value+=opp;
+          if(add!=""){
+            arr.push(add);
+          }
+            add="";
+            arr.push(opp);
+        }
+     let easy;
+        function output(){
+            arr.push(add);
+            let empty=[];
+            for (let i=0;i<arr.length;i++){
+               console.log(arr[i]);
+            
+            switch(arr[i]){
+                case '+':
+                    if(empty.length==0){
+                       easy=parseFloat(arr[i - 1])+parseFloat(arr[i + 1]);
+                       empty.push(easy);
+                       console.log(typeof(easy))
+                    }else{
+                        easy=empty[0]+parseFloat(arr[i+1]);
+                        empty=[];
+                        empty.push(easy);
+                    }
+                    break;
+                    case '-':
+                    if(empty.length==0){
+                       easy=parseFloat(arr[i - 1])-parseFloat(arr[i + 1]);
+                       empty.push(easy);
+                       console.log(typeof(easy))
+                    }else{
+                        easy=empty[0]-parseFloat(arr[i+1]);
+                        empty=[];
+                        empty.push(easy);
+                    }
+                    break;
+                    case '*':
+                    if(empty.length==0){
+                       easy=parseFloat(arr[i - 1])*parseFloat(arr[i + 1]);
+                       empty.push(easy);
+                       console.log(typeof(easy))
+                    }else{
+                        easy=empty[0]*parseFloat(arr[i+1]);
+                        empty=[];
+                        empty.push(easy);
+                    }
+                    break;
+                    case '/':
+                    if(empty.length==0){
+                       easy=parseFloat(arr[i - 1])/parseFloat(arr[i + 1]);
+                       empty.push(easy);
+                       console.log(typeof(easy))
+                    }else{
+                        easy=empty[0]/parseFloat(arr[i+1]);
+                        empty=[];
+                        empty.push(easy);
+                    }
+                    break;
+                
+            }
+
+
+
+            }
+            display.value=easy;
+            add=easy.toString();
+            b=[];
+            empty=[];
+            
+              
+                        
+        }
+ function ac(){
+    add="";
+    display.value=add;
+    b=[];
+    empty=[];
+ }
+
+
+
+
+
+let ee=10;
+let r="simeon"
+console.log(ee+r)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*let display=document.getElementById("display");
+let a=1234;
+let b=a.toString().split("");
+let arr=[];
+let easy;
+let hard;
+for(let i=0;i<b.length;i++){
+    
+    if(b[i]==b[i]%2){
+        easy="-"+b[i];
+        
+    }
+    arr.push(easy);
+}
+console.log(arr);
+for(let j=0;j<arr.length;j++){
+    console.log(arr[j])
+}*/
+// let email="simeon234567@gmail.com";
+
+// let c;
+// let d;
+// let sum=0;
+// let sum1=0;
+// for(let i=0;i<email.length;i++){
+//     email[i].split("")
+//     c=parseInt(email[i]);
+//     console.log(typeof(c))
+//     if(c%2==0){
+//         sum+=c;
+//     }
+//     if(c%2){
+//        sum1+=c
+//     }
+// }
+// console.log(sum);
+// console.log(sum1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
